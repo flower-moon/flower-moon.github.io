@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/16.png">
 <meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/17.png">
 <meta property="og:image" content="http://pcavp0bkh.bkt.clouddn.com/18.png">
-<meta property="og:updated_time" content="2018-07-27T09:20:49.436Z">
+<meta property="og:updated_time" content="2018-07-27T09:22:54.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql注入的一个实例">
 <meta name="twitter:description" content="前言 一般验证sql注入都有两种方式，一种用手工注入，还有就是用sqlmap直接进行暴力破解。一般来讲，我们都会先用手工注入判断这个网站是否存在注入点，之后再用sqlmap对这个网站进行爆破。下面是对一个靶场网站的测试,我将会用两种方式对它进行测试。">
@@ -206,9 +206,10 @@
 <p><img src="http://pcavp0bkh.bkt.clouddn.com/7.png" alt=""><br>到了这里基本就可以判断是存在注入了。</p>
 <blockquote>
 <ul>
-<li>我们首先使用order by 猜注入点 ，先是order by 10<br><img src="http://pcavp0bkh.bkt.clouddn.com/8.png" alt=""><br>发现报错，然后使用二分法，一直到order by 2时，返回的页面为这个：</li>
+<li>我们首先使用order by 猜注入点 ，先是order by 10</li>
 </ul>
 </blockquote>
+<p><img src="http://pcavp0bkh.bkt.clouddn.com/8.png" alt=""><br>发现报错，然后使用二分法，一直到order by 2时，返回的页面为这个：</p>
 <p><img src="http://pcavp0bkh.bkt.clouddn.com/9.png" alt=""><br>那么基本确定注入点为2.</p>
 <blockquote>
 <ul>
@@ -544,11 +545,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">
